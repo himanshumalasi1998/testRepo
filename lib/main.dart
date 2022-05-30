@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/config_reader.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  // Load the JSON config into memory
+  await ConfigReader.initialize();
   runApp(const MyApp());
 }
 
@@ -13,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: ConfigReader.getEnv() == 'dev' ? Colors.blue : Colors.red,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
