@@ -45,5 +45,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /android/app/text_doc.txt
-
 app_config.json
